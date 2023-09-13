@@ -1,21 +1,45 @@
 function firstNonRepeatedChar(str) {
- // Write your code here
+ // // Write your code here
+	//  let arr = str.split("");
+	// for(let i=0; i<arr.length;i++)
+	// 	{ 
+	// 		count=0;
+	// 	    for(let j=i+1; j<arr.length; j++)
+	// 			{
+	// 				if(arr[i]==arr[j])
+	// 				{
+	// 					count++;
+	// 				}
+	// 			}
+	// 		if(count==0){  
+	// 			return arr[i];
+	// 		} 
+	// 	}     
+	// return null; 
+
+
+	let obj={};
 	
-	for(let i=0; i<str.length;i++)
+	for(let i=0; i<str.length; i++){
+		
+		if(obj[str[i]] != undefined){
+		   obj[str[i]] +=1;
+		}
+		else{
+			obj[str[i]] = 1;
+		}
+	}
+
+	for(let i=0; i<str.length; i++)
 		{
-			let count=0;
-		    for(let j=i+1; j<str.length; j++)
-				{
-					if(str[i]==str[j])
-					{
-						count+=1;
-					}
-				}
-			if(count==0){  
-				return[str[i];
-			} 
-		}     
+			if(obj[str[i]]==1)
+			{
+				return str[i]; 
+			}
+		}
 	return null; 
 }
-const input = prompt("Enter a string");
-alert(firstNonRepeatedChar(input)); 
+let input = prompt("Enter a string");
+alert(firstNonRepeatedChar(input));
+// const input = prompt("Enter a string");
+// alert(firstNonRepeatedChar(input)); 
